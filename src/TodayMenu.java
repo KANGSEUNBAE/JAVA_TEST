@@ -9,7 +9,7 @@ public class TodayMenu {
     private static CardLayout cardLayout;
     private static JLabel menuLabel;
     private static Timer timer;
-    private static final int MENU_CHANGE_INTERVAL = 50; // 메뉴 변경 간격(ms)
+    private static final int MENU_CHANGE_INTERVAL = 50;
     private static boolean menuRotationEnabled = false;
 
     public static void main(String[] args) {
