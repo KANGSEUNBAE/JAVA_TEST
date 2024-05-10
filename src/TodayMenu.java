@@ -21,19 +21,25 @@ public class TodayMenu {
     private static void createUI() {
         frame = new JFrame("Today's Menu");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 150);
+        frame.setSize(600, 300);
         frame.setLayout(new CardLayout());
+
+        // Font 설정
+        Font defaultFont = UIManager.getFont("Label.font");
+        Font largerFont = defaultFont.deriveFont(defaultFont.getSize() + 4f);
 
         JPanel loginPanel = new JPanel(new GridLayout(4, 2));
         frame.add(loginPanel, "login");
 
         JLabel userLabel = new JLabel("아이디:");
+        userLabel.setFont(largerFont);
         loginPanel.add(userLabel);
 
         JTextField idField = new JTextField();
         loginPanel.add(idField);
 
         JLabel passwordLabel = new JLabel("비밀번호:");
+        passwordLabel.setFont(largerFont); // 폰트 적용
         loginPanel.add(passwordLabel);
 
         JPasswordField passwordField = new JPasswordField();
@@ -45,7 +51,7 @@ public class TodayMenu {
         JButton loginButton = new JButton("로그인");
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
- 
+
                 cardLayout.show(frame.getContentPane(), "menu");
                 menuLabel.setText("오늘의 메뉴를 선택하세요");
             }
@@ -56,6 +62,7 @@ public class TodayMenu {
         frame.add(menuPanel, "menu");
 
         menuLabel = new JLabel("", SwingConstants.CENTER);
+        menuLabel.setFont(largerFont);
         menuPanel.add(menuLabel, BorderLayout.CENTER);
 
         JButton recommendButton = new JButton("추천");
